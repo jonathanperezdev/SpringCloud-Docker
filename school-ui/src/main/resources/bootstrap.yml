@@ -1,0 +1,17 @@
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+spring:
+  application:
+    name: school-ui
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIGSERVER
+    failFast: true

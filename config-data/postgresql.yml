@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://0.0.0.0:5432/coursedb
+    username: postgres
+    password: mysecretpassword
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: create
+server:
+  port: 8081
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://discovery:8761/eureka}
+  instance:
+    preferIpAddress: true
+example:
+  property: I AM THE DEFAULT SERVER
+
