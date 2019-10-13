@@ -1,6 +1,8 @@
 # SpringCloud-Docker
 
-Project with SpringCloud Discovery, Config and Docker-Compose
+## RELEASE1 - Discovery and Config server 
+
+SpringCloud project with Discovery and Config server, a postgresql database, a server project connected with postgresql that gets data and a UI project that shows that data to the user 
 
 ## Build
 To build the java projects and create the docker images, in the root folder (SpringCloud-Docker/) execute the next command.
@@ -24,6 +26,12 @@ docker-compose up -d discovery
 docker-compose up discovery
 ```
 
+## Components
+* [Discovery](http://localhost:8761/) 
+* [Config](http://localhost:8888/posgresql/docker)
+* [Server](http://localhost:8081/class) - Server project connected with postgresql database
+* [UI](http://localhost:8080) - Front end server connected with backend server 
+
 ## Stop or Undeploy
 
 Execute in the root folder (SpringCloud-Docker/) the next command.
@@ -44,4 +52,3 @@ docker ps
 
 #Run Image Interactive mode, this allows you get into the image and execute commands
 docker run -it image_name sh
-```
