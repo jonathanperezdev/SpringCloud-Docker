@@ -28,7 +28,7 @@ docker-compose up discovery
 
 ## Components
 * [Discovery](http://localhost:8761/) 
-* [Config](http://localhost:8888/posgresql/docker)
+* [Config](http://localhost:8888/postgresql/docker)
 * [Server](http://localhost:8081/class) - Server project connected with postgresql database
 * [UI](http://localhost:8080) - Front end server connected with backend server 
 
