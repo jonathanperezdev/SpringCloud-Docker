@@ -4,6 +4,13 @@
 
 SpringCloud project with Discovery and Config server, a postgresql database, a server project connected with postgresql that gets data and a UI project that shows that data to the user 
 
+## RELEASE2 - Hystrix
+This release shows how to implement the Hystrix concepts chapter 5 of Spring Microservices in Action, the class TeachingClassServiceDB has an example of the next concepts
+
+* Circuit Breaker (method listClasses)
+* Fallback (method listClasses)
+* Bulkheads (method getExampleProperty)
+
 ## Build
 To build the java projects and create the docker images, in the root folder (SpringCloud-Docker/) execute the next command.
 
@@ -52,3 +59,6 @@ docker ps
 
 #Run Image Interactive mode, this allows you get into the image and execute commands
 docker run -it image_name sh
+
+## Documentation
+[MicroServices and Docker](https://docs.google.com/document/d/1Nl-01uY2qwOkfeiMySlihSKqqlsS3DFwrofJ-WgGyGY/edit#heading=h.e0y84wpdmvxh) - Microservices and Docker documentation
