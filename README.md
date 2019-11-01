@@ -12,7 +12,7 @@ This release shows how to implement the Hystrix concepts chapter 5 of Spring Mic
 * Bulkheads (method getExampleProperty)
 
 ## RELEASE3 - SpringCloud Gateway
-This release show how to set up SpringCloud Gateway the server for routing that replaces Netflix Zuul
+This release show how to set up SpringCloud Gateway server for routing that replaces Netflix Zuul
 
 First at all you should enabled the actuator gateway endpoint to validate by example the routes in gateway server to do this go to the properties file into the config server (gateway-docker.yml) and add next properties
 * management.endpoint.gateway.enabled=true //This is to enable gateway endpoints
@@ -20,6 +20,9 @@ First at all you should enabled the actuator gateway endpoint to validate by exa
 
 The Gateway can be configured to create routes based on services registered with a DiscoveryClient compatible service registry. 
 * spring.cloud.gateway.discovery.locator.enabled=true
+
+To see the routes after do the last steps 
+http://localhost:5555/actuator/gateway/routes/
 
 Next URL has all the gateway endpoints
 [Gateway Actuator Endpoints](https://cloud.spring.io/spring-cloud-gateway/reference/html/#recap-list-of-all-endpoints) 
@@ -51,7 +54,11 @@ docker-compose up discovery
 * [Discovery](http://localhost:8761/) 
 * [Config](http://localhost:8888/postgresql/docker)
 * [Server](http://localhost:8081/class) - Server project connected with postgresql database
-* [UI](http://localhost:8080) - Front end server connected with backend server 
+* [UI](http://localhost:8080) - Front end server connected with backend server
+* [Gateway](http://localhost:5555/actuator/gateway/routes) - Spring cloud gateway
+
+## Documentation
+* [Documentation](https://docs.google.com/document/d/1Nl-01uY2qwOkfeiMySlihSKqqlsS3DFwrofJ-WgGyGY/edit#) - Documentation
 
 ## Stop or Undeploy
 
