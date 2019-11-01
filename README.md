@@ -11,6 +11,20 @@ This release shows how to implement the Hystrix concepts chapter 5 of Spring Mic
 * Fallback (method listClasses)
 * Bulkheads (method getExampleProperty)
 
+## RELEASE3 - SpringCloud Gateway
+This release show how to set up SpringCloud Gateway the server for routing that replaces Netflix Zuul
+
+First at all you should enabled the actuator gateway endpoint to validate by example the routes in gateway server to do this go to the properties file into the config server (gateway-docker.yml) and add next properties
+* management.endpoint.gateway.enabled=true //This is to enable gateway endpoints
+* endpoints.web.exposure.include=gateway //This is for expose the gateway endpoints 
+
+The Gateway can be configured to create routes based on services registered with a DiscoveryClient compatible service registry. 
+* spring.cloud.gateway.discovery.locator.enabled=true
+
+Next URL has all the gateway endpoints
+[Gateway Actuator Endpoints](https://cloud.spring.io/spring-cloud-gateway/reference/html/#recap-list-of-all-endpoints) 
+[Important Documentation](https://github.com/spring-cloud/spring-cloud-gateway/blob/master/docs/src/main/asciidoc/spring-cloud-gateway.adoc#fluent-java-routes-api)
+
 ## Build
 To build the java projects and create the docker images, in the root folder (SpringCloud-Docker/) execute the next command.
 

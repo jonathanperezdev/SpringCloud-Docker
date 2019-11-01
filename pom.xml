@@ -14,5 +14,6 @@
     <module>discovery</module>
     <module>postgresql</module>
     <module>school-ui</module>
+    <module>gateway</module>
   </modules>
 </project>

@@ -59,5 +59,20 @@ services:
       - discovery
       - config
       - db
+  gateway:
+    image: developer.okta.com/microservice-docker-gateway:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+        -Dspring.profiles.active=docker
+    restart: on-failure
+    expose:
+      - 5555
+    ports:
+      - 5555:5555
+    depends_on:
+      - discovery
+      - config
+      - db
 volumes:
   postgres-data:

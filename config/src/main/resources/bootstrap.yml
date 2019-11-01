@@ -12,6 +12,6 @@ spring:
       server:
         git:
           uri: https://github.com/jonathanperezdev/SpringCloud-Docker-Config
-          searchPaths: postgresql,school-ui
+          searchPaths: postgresql,school-ui,gateway
           username: jonathanperezdev
           password: Perrini148
