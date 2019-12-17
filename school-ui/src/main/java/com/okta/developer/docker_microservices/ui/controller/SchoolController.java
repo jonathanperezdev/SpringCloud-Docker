@@ -27,14 +27,14 @@ public class SchoolController {
     @GetMapping("/class")
     public ResponseEntity<List<TeachingClassDto>> listClasses(){
         return restTemplate
-                .exchange("http://postgresql/class", HttpMethod.GET, null,
+                .exchange("http://GATEWAY/POSTGRESQL/class", HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<TeachingClassDto>>() {});
     }
 
     @GetMapping("/exampleProperty")
     public ResponseEntity<String> exampleProperty(){
         return restTemplate
-                .exchange("http://postgresql/exampleProperty", HttpMethod.GET, null,
+                .exchange("http://GATEWAY/POSTGRESQL/exampleProperty", HttpMethod.GET, null,
                         String.class);
     }
 }

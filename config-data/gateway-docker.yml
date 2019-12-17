@@ -15,8 +15,10 @@ management:
   endpoint:
     gateway:
       enabled: true
+    health:
+      enabled: true
 # Expose gateway endpoints to be consumed in web
   endpoints:
     web:
       exposure:
-        include: gateway
+        include: gateway,health

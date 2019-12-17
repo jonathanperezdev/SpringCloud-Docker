@@ -24,6 +24,8 @@ The Gateway can be configured to create routes based on services registered with
 To see the routes after do the last steps 
 http://localhost:5555/actuator/gateway/routes/
 
+To see the filters functionality, you could see gateway project TrackingFilterRequest and TrackingFilterResponse. 
+
 Next URL has all the gateway endpoints
 [Gateway Actuator Endpoints](https://cloud.spring.io/spring-cloud-gateway/reference/html/#recap-list-of-all-endpoints) 
 [Important Documentation](https://github.com/spring-cloud/spring-cloud-gateway/blob/master/docs/src/main/asciidoc/spring-cloud-gateway.adoc#fluent-java-routes-api)

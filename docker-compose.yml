@@ -37,24 +37,32 @@ services:
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
+        -agentlib:jdwp=transport=dt_socket,address=5080,server=y,suspend=n
     restart: on-failure
     depends_on:
       - discovery
       - config
       - db
+    expose:
+      - 8080
+      - 5080
     ports:
       - 8080:8080
+      - 5080:5080
   postgresql:
     image: developer.okta.com/microservice-docker-postgresql:0.0.1-SNAPSHOT
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
         -Dspring.profiles.active=docker
+        -agentlib:jdwp=transport=dt_socket,address=5081,server=y,suspend=n
     restart: on-failure
     expose:
       - 8081
+      - 5081
     ports:
       - 8081:8081
+      - 5081:5081
     depends_on:
       - discovery
       - config
@@ -65,14 +73,17 @@ services:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://discovery:8761/eureka
         -Dspring.profiles.active=docker
+        -agentlib:jdwp=transport=dt_socket,address=5055,server=y,suspend=n
     restart: on-failure
     expose:
       - 5555
+      - 5055
     ports:
       - 5555:5555
+      - 5055:5055
     depends_on:
       - discovery
       - config
-      - db
+      - postgresql
 volumes:
   postgres-data:
