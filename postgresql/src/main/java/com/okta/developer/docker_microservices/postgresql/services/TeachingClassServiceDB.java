@@ -5,7 +5,6 @@ import com.okta.developer.docker_microservices.postgresql.dto.TeachingClassDto;
 import com.okta.developer.docker_microservices.postgresql.repository.TeachingClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Value;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import java.util.ArrayList;
@@ -15,9 +14,6 @@ import java.util.List;
 
 @Service
 public class TeachingClassServiceDB implements TeachingClassService {
-    @Value("${example.property}")
-    private String exampleProperty;
-
     private final TeachingClassRepository teachingClassRepository;
 
     @Autowired
@@ -85,49 +81,12 @@ public class TeachingClassServiceDB implements TeachingClassService {
 
         if (randomNum==3) sleep(11000);
     }
+
     private void sleep(long time){
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    private static Integer numOfCalls = 0;
-    @Override
-    @HystrixCommand(threadPoolKey = "getExampleProperty",
-            commandProperties ={
-                    //Number of consecutive calls that must occur within a 10-second or value defined in (metrics.rollingStats.timeInMilliseconds) window
-                    // before Hystrix will consider tripping the circuit breaker for the call
-                    @HystrixProperty(
-                            name="circuitBreaker.requestVolumeThreshold",
-                            value="2"),
-                    //Percentage of calls that must fail
-                    @HystrixProperty(
-                            name="circuitBreaker.errorThresholdPercentage",
-                            value="50"),
-                    //Amount of time Hystrix will sleep once the circuit breaker is tripped
-                    // before Hystrix will allow another call through to see if the service is healthy again
-                    @HystrixProperty(
-                            name="circuitBreaker.sleepWindowInMilliseconds",
-                            value="8000"),
-                    //Used to control the size of the window that will be used by Hystrix to monitor for problems with a service call
-                    @HystrixProperty(
-                            name="metrics.rollingStats.timeInMilliseconds",
-                            value="15000"),
-                    @HystrixProperty(
-                            name="metrics.rollingStats.numBuckets",
-                            value="2"),
-                    @HystrixProperty(
-                            name="execution.isolation.thread.timeoutInMilliseconds",
-                            value="2000")
-            })
-    public String getExampleProperty(){
-        numOfCalls ++;
-        if(numOfCalls > 1){
-            sleep(3000);
-            numOfCalls = 0;
-        }
-        return this.exampleProperty;
     }
 }

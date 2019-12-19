@@ -1,0 +1,18 @@
+# Dont delete this, does not matter if it is present in docker-compose file
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native
+  application:
+    name: CONFIGSERVER
+  cloud:
+    config:
+      server:
+        native:
+         searchLocations: file:////home/jonathan/Documents/SpringMicroservices/SpringCloud-Docker/config/src/main/resources
+    failFast: true

@@ -1,0 +1,24 @@
+server:
+  port: 5555
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://discovery:8761/eureka}
+  instance:
+    preferIpAddress: true
+example:
+  property: I AM THE DEFAULT SERVER
+# Enable the gateway endpoints to get by example the routes (http://localhost:5555/actuator/gateway/routes/)
+management:
+  endpoint:
+    gateway:
+      enabled: true
+    health:
+      enabled: true
+# Expose gateway endpoints to be consumed in web
+  endpoints:
+    web:
+      exposure:
+        include: gateway,health
