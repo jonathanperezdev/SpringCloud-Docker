@@ -12,7 +12,7 @@ This release shows how to implement the Hystrix concepts chapter 5 of Spring Mic
 * Bulkheads (method getExampleProperty)
 
 ## RELEASE3 - SpringCloud Gateway
-This release show how to set up SpringCloud Gateway server for routing that replaces Netflix Zuul
+This release show how to set up SpringCloud Gateway server for routing that replaces Netflix Zuul Chapter 6 Spring Microservices in action
 
 First at all you should enabled the actuator gateway endpoint to validate by example the routes in gateway server to do this go to the properties file into the config server (gateway-docker.yml) and add next properties
 * management.endpoint.gateway.enabled=true //This is to enable gateway endpoints
